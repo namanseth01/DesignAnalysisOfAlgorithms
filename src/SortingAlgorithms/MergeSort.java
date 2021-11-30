@@ -49,4 +49,21 @@ public class MergeSort {
             merge(arr, left, mid, right);
         }
     }
+
+    public static void main(String[] args)
+    {
+        MergeSort sort = new MergeSort();
+        int[] numbers = new int[]{66, 55, 89, 12, 9, 3, 75};
+        System.out.print("Given array: ");
+        for (int number : numbers) {
+            System.out.print(number + " ");
+        }
+        System.out.println();
+        System.out.println("-----------------------");
+        System.out.println("Sorted Array after applying Merge Sort: ");
+        sort.sort(numbers, 0 , numbers.length - 1);
+        for (int number : numbers) {
+            System.out.print(number + " ");
+        }
+    }
 }
