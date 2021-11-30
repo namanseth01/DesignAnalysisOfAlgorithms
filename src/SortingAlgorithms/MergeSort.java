@@ -40,4 +40,13 @@ public class MergeSort {
         }
     }
 
+    void sort(int[] arr, int left, int right)
+    {
+        if (left < right) {
+            int mid =left+ (right-left)/2;
+            sort(arr, left, mid);
+            sort(arr, mid + 1, right);
+            merge(arr, left, mid, right);
+        }
+    }
 }
