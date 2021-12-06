@@ -1,40 +1,63 @@
 package SortingAlgorithms;
 
 public class CountingSort {
-    void sort(char arr[])
-    {
-        int n = arr.length;
-
-        // The output character array that will have sorted arr
-        char output[] = new char[n];
-
-        // Create a count array to store count of individual
-        // characters and initialize count array as 0
-        int count[] = new int[256];
-        for (int i = 0; i < 256; ++i)
-            count[i] = 0;
-
-        // store count of each character
-        for (int i = 0; i < n; ++i)
-            ++count[arr[i]];
-
-        // Change count[i] so that count[i] now contains actual
-        // position of this character in output array
-        for (int i = 1; i <= 255; ++i)
-            count[i] += count[i - 1];
-
-        // Build the output character array
-        // To make it stable we are operating in reverse order.
-        for (int i = n - 1; i >= 0; i--) {
-            output[count[arr[i]] - 1] = arr[i];
-            --count[arr[i]];
+    int getMax(int[] a, int n) {
+        int max = a[0];
+        for(int i = 1; i<n; i++) {
+            if(a[i] > max)
+                max = a[i];
         }
-
-        // Copy the output array to arr, so that arr now
-        // contains sorted characters
-        for (int i = 0; i < n; ++i)
-            arr[i] = output[i];
+        return max;
     }
 
-    
+    void sort(int[] a, int n) // function to perform counting sort
+    {
+        int[] output = new int [n+1];
+        int max = getMax(a, n);
+        //int max = 42;
+        int[] count = new int [max+1]; //create count array with size [max+1]
+
+        for (int i = 0; i <= max; ++i)
+        {
+            count[i] = 0; // Initialize count array with all zeros
+        }
+
+        for (int i = 0; i < n; i++) // Store the count of each element
+        {
+            count[a[i]]++;
+        }
+
+        for(int i = 1; i<=max; i++)
+            count[i] += count[i-1]; //find cumulative frequency
+
+  /* This loop will find the index of each element of the original array in
+
+count array, and
+   place the elements in output array*/
+        for (int i = n - 1; i >= 0; i--) {
+            output[count[a[i]] - 1] = a[i];
+            count[a[i]]--; // decrease count for same numbers
+        }
+
+        for(int i = 0; i<n; i++) {
+            a[i] = output[i]; //store the sorted elements into main array
+        }
+    }
+
+    public static void main(String[] args)
+    {
+        CountingSort sort = new CountingSort();
+        int[] numbers = new int[]{66, 55, 89, 12, 9, 3, 75};
+        System.out.print("Given array: ");
+        for (int number : numbers) {
+            System.out.print(number + " ");
+        }
+        System.out.println();
+        System.out.println("-----------------------");
+        System.out.println("Sorted Array after applying Counting Sort: ");
+        sort.sort(numbers, numbers.length);
+        for (int number : numbers) {
+            System.out.print(number + " ");
+        }
+    }
 }
