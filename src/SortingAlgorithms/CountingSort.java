@@ -1,20 +1,17 @@
 package SortingAlgorithms;
 
 public class CountingSort {
-    int getMax(int[] a, int n) {
-        int max = a[0];
-        for(int i = 1; i<n; i++) {
-            if(a[i] > max)
-                max = a[i];
-        }
-        return max;
-    }
 
     void sort(int[] a)
     {
         int n = a.length;
         int[] output = new int [n+1];
-        int max = getMax(a, n);
+        int max = a[0];
+        for (int i = 1; i < n; i++) {
+            if (a[i] > max) {
+                max = a[i];
+            }
+        }
         int[] count = new int [max+1];
 
         for (int i = 0; i <= max; ++i)
@@ -22,9 +19,8 @@ public class CountingSort {
             count[i] = 0;
         }
 
-        for (int i = 0; i < n; i++)
-        {
-            count[a[i]]++;
+        for (int i : a) {
+            count[i]++;
         }
 
         for(int i = 1; i<=max; i++)
