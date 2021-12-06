@@ -10,8 +10,9 @@ public class CountingSort {
         return max;
     }
 
-    void sort(int[] a, int n)
+    void sort(int[] a)
     {
+        int n = a.length;
         int[] output = new int [n+1];
         int max = getMax(a, n);
         int[] count = new int [max+1];
@@ -50,7 +51,7 @@ public class CountingSort {
         System.out.println();
         System.out.println("-----------------------");
         System.out.println("Sorted Array after applying Counting Sort: ");
-        sort.sort(numbers, numbers.length);
+        sort.sort(numbers);
         for (int number : numbers) {
             System.out.print(number + " ");
         }
