@@ -1,7 +1,5 @@
 package SearchingAlgorithms;
 
-import SortingAlgorithms.SelectionSort;
-
 import java.util.Scanner;
 
 public class LinearSearch {
