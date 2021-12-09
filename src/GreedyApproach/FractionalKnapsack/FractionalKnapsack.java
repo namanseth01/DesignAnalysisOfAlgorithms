@@ -36,7 +36,6 @@ public class FractionalKnapsack {
                 double fraction
                         = ((double)capacity / (double)curWt);
                 totalValue += (curVal * fraction);
-                capacity = (int)(capacity - (curWt * fraction));
                 break;
             }
         }
