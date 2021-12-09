@@ -8,4 +8,18 @@
 package GreedyApproach.FractionalKnapsack;
 
 public class FractionalKnapsack {
+
+    class ItemValue {
+        Double cost;
+        double wt, val, ind;
+
+        // item value function
+        public ItemValue(int wt, int val, int ind)
+        {
+            this.wt = wt;
+            this.val = val;
+            this.ind = ind;
+            cost = (double) val / (double) wt;
+        }
+    }
 }
