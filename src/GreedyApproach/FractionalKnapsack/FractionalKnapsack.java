@@ -56,4 +56,14 @@ public class FractionalKnapsack {
             cost = (double) val / (double) wt;
         }
     }
+
+    public static void main(String[] args) {
+        int[] wt = new int[]{ 10, 40, 20, 30 };
+        int[] val = { 60, 40, 100, 120 };
+        int capacity = 50;
+
+        double maxValue = getMaxValue(wt, val, capacity);
+
+        System.out.println("Maximum value we can obtain = " + maxValue);
+    }
 }
