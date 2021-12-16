@@ -39,7 +39,7 @@ public class CountingSort {
     public static void main(String[] args)
     {
         CountingSort sort = new CountingSort();
-        int[] numbers = new int[]{66, 55, 89, 12, 9, 3, 75};
+        int[] numbers = new int[]{2,2,3,4,5,1,1,0,3,0,6,4};
         System.out.print("Given array: ");
         for (int number : numbers) {
             System.out.print(number + " ");
