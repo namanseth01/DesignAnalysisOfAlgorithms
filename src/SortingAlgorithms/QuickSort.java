@@ -28,7 +28,7 @@ public class QuickSort {
         {
             int index = partition(arr, low, high);
             sort(arr, low, index - 1);
-            sort(arr, index + 1, high);
+            sort(arr, index, high);
         }
     }
 
